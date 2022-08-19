@@ -1,15 +1,17 @@
 import './App.css';
 import {useSelector , useDispatch} from 'react-redux'
+import {incrementCount , decrementCount} from './actions/index'
 
 function App() {
   let myState = useSelector((state) => state.changeTheState);
+  let dispatch = useDispatch();
   return (
     <div className="App">
       <h1>Counter Application React-Redux</h1>
       <div className='container'>
-        <button><span>-</span></button>
+        <button onClick={()=>{dispatch(decrementCount(1))}}><span>-</span></button>
         <input className = "text" type="text" value={myState}></input>
-        <button><span>+</span></button>
+        <button onClick={()=>{dispatch(incrementCount(1))}}><span>+</span></button>
       </div>
     </div>
   );
